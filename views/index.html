@@ -1,0 +1,83 @@
+<!-- <!doctype html>
+<html ng-app="myApp">
+<head>
+  <title>User Login and Sessions</title>
+  <link rel="stylesheet" type="text/css" 
+      href="/static/css/styles.css" />
+</head>
+<body>
+  <div ng-controller="myController">
+    <h2>Welcome. You are Logged In as </h2>
+    <a href="/logout">logout</a>
+    <a href="/user">Edit User</a>
+    <p>Place Your Code Here<p>
+  </div>
+  <hr>
+  <script src="http://code.angularjs.org/1.2.9/angular.min.js"></script>
+  <script src="/static/js/my_app.js"></script>
+</body>
+</html> -->
+<%- include header.html %>
+
+<div class="jumbotron" style="background-color:#2c3e50">
+  <div class="container">
+    <h2 style="color:#E7DBDB">Hello, I am NCZKEVIN!</h2>
+    <p class="lead" style="color:#E7DBDB">wanna know more , please click </p>
+            <a href="about"><button class="btn btn-danger btn-wide the-font">关于我</button></a>
+  </div>
+</div>
+
+<div class="container">
+<div class="row">
+
+  <div class="col-md-9">
+
+<% posts.forEach(function (post, index) { %>
+    <article class="article the-font" style="display:none">
+
+
+      <a href="/post/{{ post.id }}"><h3 style="color:#34495E"><%= post.title %></h3></a>
+      <p><small><span class="glyphicon glyphicon-calendar" aria-hidden="true"></span><span style="color:#8C8C8C;"><%= post.date %></span></small></p>
+      <div class="post-alert">本博客采用创作共用版权协议, 要求署名、非商业用途和保持一致. 转载本博客文章必须也遵循署名-非商业用途-保持一致的创作共用协议</div>
+      <p><%- post.post %></p>
+      
+      <div style="border-top:1px solid #EBEBEB;padding:10px 5px;margin-top:20px;">
+        <p><a href="/category/{{ post.category.tag }}"><span class="label label-default text-left"><span class="glyphicon glyphicon-leaf" aria-hidden="true"></span> <%= post.tags %></span>
+        <a href="/post/{{ post.id }}" style="float:right"><button class="btn  btn-primary btn-wide text-right"><span class="glyphicon glyphicon-fire
+glyphicon " aria-hidden="true"></span>  了解更多</button></a></p>
+      </div>
+    </article>
+<% }) %>
+  </div>
+
+  <div class="col-md-3">
+  
+    <div class="share mrl the-font" style="background-color:#FFF;box-shadow:5px 5px 20px #CCC;width:260px;">
+    <div style="padding:10px;">
+        <div style="border-bottom:1px solid #DAD4D4;;padding:10px 10px;">
+          <h5><span class="glyphicon glyphicon-leaf" aria-hidden="true"></span>CATEGORY</h5>
+        </div>
+
+        <ul>
+<% posts.forEach(function (post, index) { %>
+ 
+          <li class="presentation" style="padding-top:0px;"><a href="/category/{{ category.tag }}" ><p><span style="font-size:15px;">> <%= post.tags %></span><span class="badge text-right" style="float:right">{{ category.count }}</span></p></a></li>
+
+  <% }) %>
+        </ul>
+
+    </div>
+    </div>
+    
+<!--    <div class="tile" style="margin-top:40px;box-shadow:5px 5px 20px #CCC;background-color:#FFF">
+      <div style="border:5px solid #FFF;border-radius:300px;width:128px;height:128px;margin:0px auto;position:relative;bakeground:#88ACDB none repeat scroll 0% 0%;overflow:hidden">
+        <img src="{{ url_for('static',filename='pic/123.jpg') }}" style="width:100%;height:100%">
+      </div>
+    </div>
+--> 
+  </div>
+
+</div>
+</div>
+
+<%- include footer.html %>
