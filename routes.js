@@ -55,4 +55,8 @@ module.exports = function(app) {
   })
 
   app.post('/edit',posts.postarticle);
+
+
+
+  app.get('/book');
 }
