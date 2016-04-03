@@ -1,22 +1,70 @@
-<!doctype html>
+<!DOCTYPE html>
 <html>
 <head>
-  <title>User Login and Sessions</title>
-  <link rel="stylesheet" type="text/css" 
-        href="/static/css/styles.css" />
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>NCZkevin</title>
+  <link rel="stylesheet" type="text/css" href="/static/bootstrap/css/bootstrap.min.css">
+  <link rel="stylesheet" type="text/css" href="/static/dist/css/flat-ui.min.css">
+  <link rel="stylesheet" type="text/css" href="/static/css/mystyle.css">
+  <link rel="stylesheet" type="text/css" href="/static/css/flat-ui.css">
+
+
+  <script type="text/javascript" src="/static/dist/js/vendor/jquery.min.js"></script>
+  <script type="text/javascript" src="/static/bootstrap/js/bootstrap.min.js"></script>
+
+
+  <script type="text/javascript" src="/static/js/mystyle.js"></script>
+<style type="text/css">
+  h1{
+    font-size:50px;
+  }
+  h2{
+    font-size: 40px;
+  }
+  h3{
+    font-size: 30px;
+  }
+  p{
+    font-size: 15px;
+  }
+  blockquote p{
+    font-size: 17px;
+  }
+  body{
+    font-size: 15px;
+  }
+</style>
 </head>
 <body>
-  <div class="form-container">
-    <p class="form-header">Login</p>
+
+
+
+
     <form method="POST">
-        <label>Username:</label>
+     <div class="login-screen">
+      <div class="login-form">
+       <div class="form-group">
+              <input type="text" class="form-control login-field" value="" placeholder="Enter your name" id="login-name" name="username"/>
+              <label class="login-field-icon fui-user" for="login-name"></label>
+        </div>
+        <div class="form-group">
+              <input type="password" class="form-control login-field" value="" placeholder="Password" id="login-pass" name="password"/>
+              <label class="login-field-icon fui-lock" for="login-pass"></label>
+          </div>
+          <input type="submit" value="Login" class="btn btn-primary btn-lg btn-block">
+        </div>
+   </div>
+  </form>
+  
+ <!--       <label>Username:</label>
         <input type="text" name="username"><br>
         <label>Password:</label>
         <input type="password" name="password"><br>
         <input type="submit" value="Login">
-    </form>
-  </div>
-  <a href="/signup">Sign Up</a>
-  <hr><%= msg %>
+        <a href="/signup">Sign Up</a>
+         <hr><%= msg %>
+    -->
+
 </body>
 </html>

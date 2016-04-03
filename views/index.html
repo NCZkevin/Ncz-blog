@@ -36,7 +36,7 @@
     <article class="article the-font" style="display:none">
 
 
-      <a href="/post/{{ post.id }}"><h3 style="color:#34495E"><%= post.title %></h3></a>
+      <a href="/post/<%= post.title %>"><h3 style="color:#34495E"><%= post.title %></h3></a>
       <p><small><span class="glyphicon glyphicon-calendar" aria-hidden="true"></span><span style="color:#8C8C8C;"><%= post.date %></span></small></p>
       <div class="post-alert">本博客采用创作共用版权协议, 要求署名、非商业用途和保持一致. 转载本博客文章必须也遵循署名-非商业用途-保持一致的创作共用协议</div>
       <p><%- post.post %></p>

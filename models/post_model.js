@@ -3,7 +3,8 @@ var mongoose = require('mongoose'),
 
 var PostSchema = new Schema({
 	title: String,
-	date : String,
+	// date : String,
+	date : {type:Date,default:Date.now},
 	post : String,
 	tags : String
 });

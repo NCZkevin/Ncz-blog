@@ -46,9 +46,7 @@ module.exports = function(app) {
     res.render('about');
   });
 
-  app.get('/post',function(req,res){
-    res.render('post');
-  })
+  app.get('/post/:title',posts.getone);
 
   app.get('/edit',function(req,res){
     res.render('edit');

@@ -1,5 +1,6 @@
 var mongoose = require('mongoose'),
-    Post = mongoose.model('Post');
+    Post = mongoose.model('Post'),
+    markdown = require('markdown').markdown;
 
 exports.postarticle = function(req,res){
 	  var date = new Date();
@@ -21,7 +22,7 @@ exports.postarticle = function(req,res){
 
 	post.post = req.body.post;
 	post.tags = req.body.tags;
-	post.date = time;
+	// post.date = time;
 
 	post.save(function(err){
 	if (err){
@@ -35,7 +36,10 @@ exports.postarticle = function(req,res){
 
 exports.getindex = function(req,res){
     if (req.session.user) {
-    Post.find().sort({'date':'asc'}).exec(function(err,posts){
+    Post.find().sort({"date": -1}).exec(function(err,posts){
+    	posts.forEach(function (post) {
+	  post.post = markdown.toHTML(post.post);
+	});
     res.render('index', {
       title: '主页',
       user: req.session.user,
@@ -49,3 +53,14 @@ exports.getindex = function(req,res){
     }
 
 };
+
+exports.getone = function(req,res){
+	Post.findOne({ title: req.params.title }).exec(function(err,post){
+
+	  post.post = markdown.toHTML(post.post);
+
+		res.render('post',{
+			post: post,
+		});
+	});
+}
