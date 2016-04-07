@@ -55,6 +55,6 @@ module.exports = function(app) {
   app.post('/edit',posts.postarticle);
 
 
-
+  app.get('/h');
   app.get('/book');
 }
